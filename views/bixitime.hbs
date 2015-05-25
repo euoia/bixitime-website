@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+	<script src="js/bixitime.js" type="text/javascript"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/bixitime.css" />
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+	<script id="station" type="text/x-handlebars-template">
+		<h2>\{{name}}</h2>
+		<div class="station-stat">Bikes: \{{bikes}}</div>
+		<div class="station-stat">Empty docks: \{{empty_docks}}</div>
+		<div class="station-stat">Distance: \{{distance}}m</div>
+		<div class="station-stat">
+			<a href="https://www.google.ca/maps/dir/\{{fromLat}},\{{fromLong}}/\{{lat}},\{{long}}">directions</a>
+		</div>
+	</script>
+    <div class="loading">
+	<img class="spinner" alt="ajax loading spinner" src="/img/ajax-loader.gif" />
+		Locating
+	</div>
+	<div id="results"></div>
+	<script type="text/javascript">
+		new BixiTime({
+			apiUrl: '{{apiUrl}}',
+		});
+	</script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "bixitime-website",
+  "version": "1.0.0",
+  "description": "The website http://bixitime.com.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bixitime.js",
+    "browserify": "browserify ./public-src/bixitime.js --debug --standalone BixiTime -o public/js/bixitime.js",
+    "supervisor": "supervisor -e js,css,hbs,node bixitime.js"
+  },
+  "author": "James Pickard <james.pickard@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/euoia/bixitime-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/euoia/bixitime-website/issues"
+  },
+  "homepage": "https://github.com/euoia/bixitime-website#readme",
+  "dependencies": {
+    "bluebird": "^2.9.25",
+    "check-types": "^3.2.0",
+    "handlebars": "^3.0.3",
+    "jquery": "^2.1.4",
+    "koa": "^0.21.0",
+    "koa-hbs": "^0.7.0",
+    "koa-static": "^1.4.9",
+    "lodash": "^3.9.2",
+    "winston": "^1.0.0"
+  }
+}
