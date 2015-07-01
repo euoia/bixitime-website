@@ -1,3 +1,7 @@
+html {
+	font-size: 64px;
+}
+
 body {
 	font-family: Lato;
 	color: green;
@@ -7,11 +11,11 @@ body {
 }
 
 .header {
-	margin-bottom: 50px;
+	margin-bottom: .8rem;
 }
 
 .header img {
-	height: 160px;
+	height: 2.5rem;
 }
 
 .header.red {
@@ -30,53 +34,76 @@ body {
 	-webkit-filter: invert(100%);
 }
 
-.name {
-	font-size: 50px;
-	max-width: 60%;
-}
-
-.right {
-	font-size: 70px;
-	float: right;
-	width: 40%;
-}
-
+/**
+ * Spacing for station information.
+ */
 .station {
-	padding-bottom: 50px;
+	padding-bottom: 1rem;
 	text-align: left;
 }
 
-.station img {
-	height: 80px;
+.name {
+	width: 60%;
+	font-size: 0.7em;
 }
 
-.station span {
-	padding-right: 0.5em;
+.right img {
+	height: 1.25em;
 }
 
 .bikes {
 	position: absolute;
-	right: 500px;
+	right: 8em;
 }
 
 .bikes-image {
 	position: absolute;
-	right: 360px;
+	right: 6em;
 }
 
 .docks {
 	position: absolute;
-	right: 240px;
+	right: 4em;
 }
 
 .docks-image {
 	position: absolute;
-	right: 190px;
+	right: 3.25em;
 }
 
-.directions {
+.map {
 	position: absolute;
-	right: 50px;
+	right: 1em;
+}
+
+@media (max-width: 1300px) {
+	.station {
+		font-size: 0.9rem;
+	}
+}
+
+@media (max-width: 1200px) {
+	.station {
+		font-size: 0.8rem;
+	}
+}
+
+@media (max-width: 1060px) {
+	.station {
+		font-size: 0.7rem;
+	}
+}
+
+@media (max-width: 930px) {
+	.station {
+		font-size: 0.6rem;
+	}
+}
+
+@media (max-width: 800px) {
+	.station {
+		font-size: 0.5rem;
+	}
 }
 
 .loading {
@@ -88,7 +115,7 @@ body {
 }
 
 .spinner {
-	margin-right: 0.2em;
+	margin-right: 0.2rem;
 }
 
 a {
