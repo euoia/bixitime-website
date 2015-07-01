@@ -2,7 +2,8 @@ var
 	hbs = require('koa-hbs'),
 	log = require('winston'),
 	koa = require('koa'),
-	koaStatic = require('koa-static');
+	staticCache = require('koa-static-cache'),
+	path = require('path');
 
 // Application configuration.
 var appPort = process.env.BIXI_TIME_PORT || 3010;
@@ -14,7 +15,11 @@ log.add(log.transports.Console, {timestamp: true});
 // Configure koa.
 var app = koa();
 
-app.use(koaStatic('public'));
+app.use(staticCache(path.join(__dirname, 'public'), {
+  maxAge: 365 * 24 * 60 * 60,
+  gzip: true
+}));
+
 app.use(hbs.middleware({
   viewPath: __dirname + '/views'
 }));

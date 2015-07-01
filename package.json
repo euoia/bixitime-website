@@ -25,7 +25,7 @@
     "jquery": "^2.1.4",
     "koa": "^0.21.0",
     "koa-hbs": "^0.7.0",
-    "koa-static": "^1.4.9",
+    "koa-static-cache": "^3.1.1",
     "lodash": "^3.9.2",
     "winston": "^1.0.0"
   }
