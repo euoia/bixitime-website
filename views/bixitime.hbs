@@ -9,18 +9,29 @@
   </head>
   <body>
 	<script id="station" type="text/x-handlebars-template">
-		<h2>\{{name}}</h2>
-		<div class="station-stat">Bikes: \{{bikes}}</div>
-		<div class="station-stat">Empty docks: \{{empty_docks}}</div>
-		<div class="station-stat">Distance: \{{distance}}m</div>
-		<div class="station-stat">
-			<a href="https://www.google.ca/maps/dir/\{{fromLat}},\{{fromLong}}/\{{lat}},\{{long}}">directions</a>
+		<div class="station">
+			<div class="right">
+				<span class="distance">\{{distance}}m</span>
+				<span class="bikes">\{{bikes}}</span>
+				<span class="bikes-image"><img src="/img/bike.png" /></span>
+				<span class="docks">\{{empty_docks}}</span>
+				<span class="docks-image"><img src="/img/dock.png" /></span>
+				<span class="directions">
+					<a href="https://www.google.ca/maps/dir/\{{fromLat}},\{{fromLong}}/\{{lat}},\{{long}}"><img src="/img/directions.png" /></a>
+				</span>
+			</div>
+			<div class="name">
+				<a href="https://www.google.ca/maps/dir/\{{fromLat}},\{{fromLong}}/\{{lat}},\{{long}}">
+					\{{{name}}}
+				</a>
+			</div>
 		</div>
 	</script>
-    <div class="loading">
-	<img class="spinner" alt="ajax loading spinner" src="/img/ajax-loader.gif" />
-		Locating
+
+	<div class="header">
+		<img src="/img/bixitime.png" alt="BixiTime logo" />
 	</div>
+
 	<div id="results"></div>
 	<script type="text/javascript">
 		new BixiTime({

@@ -1,21 +1,67 @@
 body {
 	font-family: Lato;
 	color: green;
-	background-color: black;
+	background-color: white;
 	width: 100%;
 	text-align: center;
 }
 
-h1 {
-	font-size: 600px;
+.header {
+	margin-bottom: 50px;
 }
 
-h2 {
-	font-size: 50px;
+.name {
+	font-size: 90px;
+	max-width: 50%;
 }
 
-.station-stat {
-	font-size: 30px;
+.right {
+	float: right;
+	width: 50%;
+}
+
+.station {
+	font-size: 100px;
+	padding-bottom: 0.5em;
+	text-align: left;
+}
+
+.station img {
+	height: 114px;
+}
+
+.station span {
+	padding-right: 0.5em;
+}
+
+.bikes {
+	position: absolute;
+	right: 750px;
+}
+
+.bikes-image {
+	position: absolute;
+	right: 530px;
+}
+
+.docks {
+	position: absolute;
+	right: 340px;
+}
+
+.docks-image {
+	position: absolute;
+	right: 260px;
+}
+
+.directions {
+	position: absolute;
+	right: 100px;
+}
+
+.distance {
+	position: absolute;
+	right: 880px;
 }
 
 .loading {
@@ -32,4 +78,5 @@ h2 {
 
 a {
 	color: green;
+	text-decoration: none;
 }

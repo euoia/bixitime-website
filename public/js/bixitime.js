@@ -25,26 +25,34 @@ var BixiTime = module.exports = function (options) {
 		this.showStations(lastPosition);
 	}
 
-	navigator.geolocation.getCurrentPosition(function (position) {
-		if (position === undefined ||
-			position.coords === undefined ||
-			position.coords.latitude === undefined ||
-			position.coords.longitude === undefined
-		) {
-			console.error('Invalid position', position);
-			return;
+	//navigator.geolocation.getCurrentPosition(this.gotPosition.bind(this));
+	this.gotPosition.bind({
+		coords: {
+			latitude: 123.00,
+			longitude: 123.00
 		}
+	});
+};
 
-		localStorage.setItem('position', JSON.stringify({
-			coords: {
-				latitude: position.coords.latitude,
-				longitude: position.coords.longitude
-			}
-		}));
+BixiTime.prototype.gotPosition = function(position) {
+	if (position === undefined ||
+		position.coords === undefined ||
+		position.coords.latitude === undefined ||
+		position.coords.longitude === undefined
+	) {
+		console.error('Invalid position', position);
+		return;
+	}
 
-		this.showStations(position);
-		$('.loading').hide();
-	}.bind(this));
+	localStorage.setItem('position', JSON.stringify({
+		coords: {
+			latitude: position.coords.latitude,
+			longitude: position.coords.longitude
+		}
+	}));
+
+	this.showStations(position);
+	$('.loading').hide();
 };
 
 BixiTime.prototype.showStations = function (position) {
@@ -66,6 +74,7 @@ BixiTime.prototype.showStations = function (position) {
 		var html = _.map(stations, function (station) {
 			station.fromLat = position.coords.latitude;
 			station.fromLong = position.coords.longitude;
+
 			return stationTemplate(station);
 		}).join('');
 
