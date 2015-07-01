@@ -16,7 +16,7 @@
 				<span class="docks">\{{empty_docks}}</span>
 				<span class="docks-image"><img src="/img/dock.png" /></span>
 				<span class="directions">
-					<a href="https://www.google.ca/maps/dir/\{{fromLat}},\{{fromLong}}/\{{lat}},\{{long}}"><img src="/img/directions.png" /></a>
+					<a href="https://www.google.ca/maps/dir/\{{fromLat}},\{{fromLong}}/\{{lat}},\{{long}}"><img src="/img/map.png" /></a>
 				</span>
 			</div>
 			<div class="name">
@@ -27,6 +27,14 @@
 			</div>
 		</div>
 	</script>
+
+	<!-- This should hopefully cause the browser to load the images while we
+	locate the user. -->
+	<div class="preload" style="display: none">
+		<img src="/img/bike.png" />
+		<img src="/img/dock.png" />
+		<img src="/img/map.png" />
+	</div>
 
 	<div class="header">
 		<img src="/img/bixitime.png" alt="BixiTime logo" />

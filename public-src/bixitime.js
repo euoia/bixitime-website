@@ -1,7 +1,8 @@
 var $ = require('jquery'),
 	_ = require('lodash'),
 	check = require('check-types'),
-	Handlebars = require('Handlebars');
+	Handlebars = require('Handlebars'),
+	Loader = require('./Loader.js');
 
 var BixiTime = module.exports = function (options) {
 	/**
@@ -9,6 +10,13 @@ var BixiTime = module.exports = function (options) {
 	 */
 	check.assert.string(options.apiUrl);
 	this.apiUrl = options.apiUrl;
+
+	this.loader = new Loader({
+		elementLocator: '.header'
+	});
+
+	// Start the loading animation.
+	this.loader.startLoading();
 
 	var lastPositionItem = localStorage.getItem('position');
 	var lastPosition = null;
@@ -24,26 +32,41 @@ var BixiTime = module.exports = function (options) {
 		this.showStations(lastPosition);
 	}
 
-	navigator.geolocation.getCurrentPosition(function (position) {
-		if (position === undefined ||
-			position.coords === undefined ||
-			position.coords.latitude === undefined ||
-			position.coords.longitude === undefined
-		) {
-			console.error('Invalid position', position);
-			return;
+	navigator.geolocation.getCurrentPosition(
+		function (position) {
+			this.loader.stopLoading();
+			this.gotPosition(position);
+		}.bind(this)
+	);
+
+	//this.gotPosition.bind({
+		//coords: {
+			//latitude: 123.00,
+			//longitude: 123.00
+		//}
+	//});
+};
+
+
+BixiTime.prototype.gotPosition = function(position) {
+	if (position === undefined ||
+		position.coords === undefined ||
+		position.coords.latitude === undefined ||
+		position.coords.longitude === undefined
+	) {
+		console.error('Invalid position', position);
+		return;
+	}
+
+	localStorage.setItem('position', JSON.stringify({
+		coords: {
+			latitude: position.coords.latitude,
+			longitude: position.coords.longitude
 		}
+	}));
 
-		localStorage.setItem('position', JSON.stringify({
-			coords: {
-				latitude: position.coords.latitude,
-				longitude: position.coords.longitude
-			}
-		}));
-
-		this.showStations(position);
-		$('.loading').hide();
-	}.bind(this));
+	this.showStations(position);
+	$('.loading').hide();
 };
 
 BixiTime.prototype.showStations = function (position) {

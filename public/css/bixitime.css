@@ -14,6 +14,22 @@ body {
 	height: 160px;
 }
 
+.header.red {
+	-webkit-filter: hue-rotate(130deg);
+}
+
+.header.pink {
+	-webkit-filter: hue-rotate(70deg);
+}
+
+.header.green {
+	-webkit-filter: hue-rotate(280deg);
+}
+
+.header.yellow {
+	-webkit-filter: invert(100%);
+}
+
 .name {
 	font-size: 50px;
 	max-width: 60%;
