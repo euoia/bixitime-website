@@ -11,7 +11,6 @@
 	<script id="station" type="text/x-handlebars-template">
 		<div class="station">
 			<div class="right">
-				<span class="distance">\{{distance}}m</span>
 				<span class="bikes">\{{bikes}}</span>
 				<span class="bikes-image"><img src="/img/bike.png" /></span>
 				<span class="docks">\{{empty_docks}}</span>
@@ -21,6 +20,7 @@
 				</span>
 			</div>
 			<div class="name">
+				<span class="distance">\{{distance}}m</span>
 				<a href="https://www.google.ca/maps/dir/\{{fromLat}},\{{fromLong}}/\{{lat}},\{{long}}">
 					\{{{name}}}
 				</a>

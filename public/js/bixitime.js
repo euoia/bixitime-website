@@ -25,13 +25,13 @@ var BixiTime = module.exports = function (options) {
 		this.showStations(lastPosition);
 	}
 
-	//navigator.geolocation.getCurrentPosition(this.gotPosition.bind(this));
-	this.gotPosition.bind({
-		coords: {
-			latitude: 123.00,
-			longitude: 123.00
-		}
-	});
+	navigator.geolocation.getCurrentPosition(this.gotPosition.bind(this));
+	//this.gotPosition.bind({
+		//coords: {
+			//latitude: 123.00,
+			//longitude: 123.00
+		//}
+	//});
 };
 
 BixiTime.prototype.gotPosition = function(position) {
@@ -68,6 +68,7 @@ BixiTime.prototype.showStations = function (position) {
 	$.getJSON(this.apiUrl, {
 		lat: position.coords.latitude,
 		long: position.coords.longitude,
+		limit: 5
 	}, function (stations) {
 		var stationSource = $('#station').html();
 		var stationTemplate = Handlebars.compile(stationSource);

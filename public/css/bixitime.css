@@ -10,24 +10,28 @@ body {
 	margin-bottom: 50px;
 }
 
+.header img {
+	height: 160px;
+}
+
 .name {
-	font-size: 90px;
-	max-width: 50%;
+	font-size: 50px;
+	max-width: 60%;
 }
 
 .right {
+	font-size: 70px;
 	float: right;
-	width: 50%;
+	width: 40%;
 }
 
 .station {
-	font-size: 100px;
-	padding-bottom: 0.5em;
+	padding-bottom: 50px;
 	text-align: left;
 }
 
 .station img {
-	height: 114px;
+	height: 80px;
 }
 
 .station span {
@@ -36,32 +40,27 @@ body {
 
 .bikes {
 	position: absolute;
-	right: 750px;
+	right: 500px;
 }
 
 .bikes-image {
 	position: absolute;
-	right: 530px;
+	right: 360px;
 }
 
 .docks {
 	position: absolute;
-	right: 340px;
+	right: 240px;
 }
 
 .docks-image {
 	position: absolute;
-	right: 260px;
+	right: 190px;
 }
 
 .directions {
 	position: absolute;
-	right: 100px;
-}
-
-.distance {
-	position: absolute;
-	right: 880px;
+	right: 50px;
 }
 
 .loading {
@@ -78,5 +77,4 @@ body {
 
 a {
 	color: green;
-	text-decoration: none;
 }
