@@ -13,6 +13,12 @@ var BixiTime = module.exports = function (options) {
 
 	this.debug = (location.search.match('debug=1') !== null);
 
+	/**
+	 * @property {string} watchId The result of
+	 * navigator.geolocation.watchPosition.
+	 */
+	this.watchId = null;
+
 	this.loader = new Loader({
 		elementLocator: '.header'
 	});
@@ -46,12 +52,11 @@ var BixiTime = module.exports = function (options) {
 		this.showStations(lastPosition);
 	}
 
-	navigator.geolocation.watchPosition(
+	navigator.geolocation.getCurrentPosition(
 		this.gotPosition.bind(this),
 		this.showSadMap.bind(this),
 		{
-			timeout: 20000,
-			enableHighAccuracy: true,
+			timeout: 30000,
 			maximumAge: 180000 // 3 minutes.
 		}
 	);
@@ -73,6 +78,19 @@ BixiTime.prototype.gotPosition = function(position) {
 
 	this.savePosition(position);
 	this.showStations(position);
+
+	// Now try to update with high accuracy.
+	if (this.watchId === null ) {
+		this.watchId = navigator.geolocation.getCurrentPosition(
+			this.gotPosition.bind(this),
+			this.showSadMap.bind(this),
+			{
+				timeout: 30000,
+				maximumAge: 180000, // 3 minutes.
+				enableHighAccuracy: true
+			}
+		);
+	}
 };
 
 BixiTime.prototype.showSadMap = function(error) {
