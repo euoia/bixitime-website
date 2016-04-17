@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node bixitime.js",
     "browserify": "browserify ./public-src/bixitime.js --debug --standalone BixiTime -o public/js/bixitime.js",
-    "supervisor": "supervisor -e js,css,hbs,node bixitime.js"
+    "supervisor": "supervisor -e js,css,hbs,node bixitime.js",
+    "lint": "eslint ."
   },
   "author": "James Pickard <james.pickard@gmail.com>",
   "license": "ISC",
