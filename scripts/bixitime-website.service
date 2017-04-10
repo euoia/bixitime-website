@@ -1,0 +1,18 @@
+# systemd service file for bixitime-website
+
+[Unit]
+Description=This is the website that runs bixitime.com
+Documentation=https://github.com/euoia/bixitime-website
+After=network.target
+
+[Service]
+User=james
+Group=james
+LimitNOFILE=65536
+ExecStart=/home/james/.nvm/versions/node/v7.4.0/bin/node -r /var/www/bixitime.com/bixitime.js
+KillMode=control-group
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=bixitime-website.service
