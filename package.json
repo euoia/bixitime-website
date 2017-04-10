@@ -32,6 +32,7 @@
     "winston": "^1.0.0"
   },
   "devDependencies": {
+    "browserify": "^14.3.0",
     "eslint": "^2.8.0"
   }
 }

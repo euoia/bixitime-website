@@ -23,6 +23,6 @@ Building
 The client library is built using browserify.
 
 ```
-npm run-script browserify
+npm run browserify
 ```
 
