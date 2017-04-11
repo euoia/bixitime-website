@@ -38,7 +38,7 @@ app.use(function *(){
   if (this.path === '/') {
     yield this.render('bixitime', {
       title: 'Bixi Time',
-      apiUrl: 'http://api.bixitime.com/station/nearest'
+      apiUrl: 'https://api.bixitime.com/station/nearest'
     });
   }
 });
